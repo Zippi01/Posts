@@ -1,0 +1,12 @@
+<div class="container, alert alert-secondary">
+  <h1 align="center">Editing Post</h1>
+  <div class="list-group-item" >
+    <%= render 'form', post: @post %>
+    <div class="pjax-container">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <%= link_to 'Show', @post, class: 'btn btn-success' %>
+        <%= link_to 'Back', posts_path, class: 'btn btn-danger'%>
+      </div>
+    </div>
+  </div>
+</div>

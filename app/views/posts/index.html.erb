@@ -1,0 +1,26 @@
+<div class="container, alert alert-secondary">
+  <p id="notice"><%= notice %></p>
+  <head>
+    <%= link_to 'New Post', new_post_path, class:'btn btn-success', style:'float: right'%>
+    <h1 align="center">Posts</h1>
+  </head>
+  <body>
+    <% @posts.each do |post| %>
+      <div class="list-group-item" >
+        <h5>Name</h5>
+          <p><%= post.name %></p>
+        <h5>Title</h5>
+          <p><%= post.title %></p>
+        <h5>Content</h5>
+          <p><%= post.content %></p>
+        <div class="pjax-container">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <%= link_to 'Show', post , class: 'btn btn-success'%>
+            <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary' %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </body>
+</div>

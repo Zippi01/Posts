@@ -1,0 +1,24 @@
+<div class="container, alert alert-secondary">
+  <p id="notice"><%= notice %></p>
+  <h1 align="center">Show</h1>
+  <div class="list-group-item" >
+    <p>
+      <strong>Name:</strong>
+      <%= @post.name %>
+    </p>
+    <p>
+      <strong>Title:</strong>
+      <%= @post.title %>
+    </p>
+    <p>
+      <strong>Content:</strong>
+      <%= @post.content %>
+    </p>
+    <div class="pjax-container">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' %>
+        <%= link_to 'Back', posts_path, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
