@@ -2,7 +2,6 @@
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
         <% post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,27 +9,28 @@
       </ul>
     </div>
   <% end %>
-
-
- <%= form.collection_select :author_id, @authors, :id, :last_name, {}, class: "form-control"  %>
-
-
+  <strong><%= form.label :"Author:" %></strong>
+  <%# <%= form.collection_select :author_id, @authors, :id, :last_name, {}, class: "form-control"  %>
+  <%= form.select :author_id, Author.pluck(:first_name, :id ) %>
+  <p></p>
   <div class="field">
-    <%= form.label :title %>
+    <strong><%= form.label :"Title:"%></strong>
     <%= form.text_field :title, class: "form-control" %>
   </div>
-
+  <p></p>
   <div class="field">
-    <%= form.label :content %>
+
+    <strong><%= form.label :"Content:" %></strong>
     <%= form.text_area :content, class: "form-control"%>
   </div>
-
+  <p></p>
   <div class="field">
-    <%= form.label :image%>
-    <%= form.file_field :image, class: "form-control"  %>
+    <strong><%= form.label :"Image:"%></strong>
+    <p><i class="fas fa-images"></i><%= form.file_field :image,class: "btn-sm" %></p>
   </div>
-
+  <p></p>
   <div class="actions">
-    <%= form.submit :Done, class: "btn btn-warning btn-sm"  %>
+    <%= form.submit :Done, class: "btn btn-success btn-sm"  %>
   </div>
+  <p></p>
 <% end %>

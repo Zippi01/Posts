@@ -1,12 +1,11 @@
-<div class="container, alert alert-secondary">
-  <p id="notice"><%= notice %></p>
+<div class=" alert alert-secondary ">
   <head>
-    <%= link_to 'New Post', new_post_path, class:'btn btn-success', style:'float: right'%>
     <h1 align="center">Posts</h1>
   </head>
   <body>
+
     <% @posts.each do |post| %>
-      <div class="list-group-item" >
+    <div class="list-group-item px-20" style = "border-radius: 10px" >
         <h5>Anthor</h5>
           <%= full_name(post) %>
         <h5>Title</h5>
@@ -15,12 +14,13 @@
           <p><%= post.content %></p>
         <div class="pjax-container">
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <%= link_to 'Show', post , class: 'btn btn-success'%>
-            <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary' %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+            <%= link_to 'Show', post , class: 'btn btn-success '%>
+            <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-secondary' %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-dark'%>
           </div>
         </div>
       </div>
+      <br>
     <% end %>
   </body>
 </div>
