@@ -7,8 +7,8 @@
   <body>
     <% @posts.each do |post| %>
       <div class="list-group-item" >
-        <h5>Name</h5>
-          <p><%= post.name %></p>
+        <h5>Anthor</h5>
+          <%= full_name(post) %>
         <h5>Title</h5>
           <p><%= post.title %></p>
         <h5>Content</h5>
