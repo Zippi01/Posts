@@ -19,16 +19,43 @@
       <%= image_tag @post.image, width: '50%' %>
     </p>
     <p>
-      <%= distance_of_time_in_words(Time.now.hour, Time.now-@post.created_at) %> 
+      <%= distance_of_time_in_words(Time.now.hour, Time.now-@post.created_at) %>
     </p>
-
-
     <div class="pjax-container">
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' %>
         <%= link_to 'Back', posts_path, class: 'btn btn-danger' %>
       </div>
     </div>
+
+    <br>
+    <br>
+    <br>
+
+    <h3>All comments</h3>
+    <% @post.comments.each do |comment| %>
+    <div class="alert alert-light">
+      <p><strong><%= comment.username %></strong>: <%= comment.body %>
+      </p>
+    </div>
+    <% end %>
+
+    <br>
+    <br>
+    <br>
+
+
+    <h2>Add comments</h2>
+    <%= form_for([@post, @post.comments.build]) do |f|%>
+    <p><strong>User:</strong>
+      <%= f.text_field(:username, {:class => 'form-control'}) %>
+    </p>
+    <p><strong>Text comment:</strong>
+      <%= f.text_area(:body, {:class => 'form-control'}) %>
+    </p>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <%= f.submit 'Edit', class: 'btn btn-primary' %>
+    </div>
+    <%end%>
   </div>
 </div>
-<!-- -->
