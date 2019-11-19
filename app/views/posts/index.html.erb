@@ -3,7 +3,6 @@
     <h1 align="center">Posts</h1>
   </head>
   <body>
-
     <% @posts.each do |post| %>
     <div class="list-group-item px-20" style = "border-radius: 10px" >
         <h5>Anthor</h5>
@@ -13,6 +12,7 @@
         <h5>Content</h5>
           <p><%= post.content %></p>
         <div class="pjax-container">
+          <p class="far fa-eye"> <%= post.impressions_count %></p><br>
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <%= link_to 'Show', post , class: 'btn btn-success '%>
             <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-secondary' %>

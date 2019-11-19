@@ -10,16 +10,14 @@
     </div>
   <% end %>
   <strong><%= form.label :"Author:" %></strong>
-  <%# <%= form.collection_select :author_id, @authors, :id, :last_name, {}, class: "form-control"  %>
-  <%= form.select :author_id, Author.pluck(:first_name, :id ) %>
-  <p></p>
+  <%= form.select :author_id, Author.pluck(:last_name, :id ),{}, class: "form-control" %>
+    <p></p>
   <div class="field">
     <strong><%= form.label :"Title:"%></strong>
-    <%= form.text_field :title, class: "form-control" %>
+    <%= form.text_field :title, class: "form-control"%>
   </div>
-  <p></p>
+    <p></p>
   <div class="field">
-
     <strong><%= form.label :"Content:" %></strong>
     <%= form.text_area :content, class: "form-control"%>
   </div>
@@ -28,9 +26,9 @@
     <strong><%= form.label :"Image:"%></strong>
     <p><i class="fas fa-images"></i><%= form.file_field :image,class: "btn-sm" %></p>
   </div>
-  <p></p>
+    <p></p>
   <div class="actions">
     <%= form.submit :Done, class: "btn btn-success btn-sm"  %>
   </div>
-  <p></p>
+    <p></p>
 <% end %>
